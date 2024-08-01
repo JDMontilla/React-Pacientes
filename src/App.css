@@ -1,0 +1,38 @@
+.div {
+    max-width: 70%;
+    margin: 0 auto; 
+  }
+  
+  * {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    background: #1c2c4c;
+    color: #fff; 
+  }
+  
+  .titulo {
+    text-align: center;
+    background: #1c2c4c;
+    color: rgb(209, 218, 218);
+    border: 2px solid;
+    border-radius: 10px;
+    width: 70%;
+    margin: 20px auto;
+  }
+  
+  .head {
+    border: 3px solid gray;
+  }
+  
+  .boton {
+    border-radius: 10px;
+    gap: -20px;
+  }
+
+  .botons{
+    gap: 20px;
+  }
+
+  .actions-cell {
+    justify-content: center; /* Center buttons horizontally */
+    gap: 10px; /* Adjust this value to change the spacing between buttons */
+  }
