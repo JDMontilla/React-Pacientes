@@ -1,14 +1,13 @@
 import { useRoutes, BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import  {Home}  from "./Home";
-import  {Create}  from "./Create";
-import "./App.css";
-import axios from "axios";
+import  {Crear}  from "./Crear";
 
 const AppRoutes = () => {
   let routes = useRoutes([
     { path: "/", element: <Home />, },
-    { path: "/create", element: <Create />, },
+    { path: "/crear", element: <Crear />, },
+    
   ]);
 
   return routes;
