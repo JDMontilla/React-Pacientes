@@ -2,10 +2,16 @@ import React from "react";
 import { Edit, Delete, Create } from "./Metodoshttp";
 import { useFetch } from "./useFetch";
 import { useState } from "react";
+import ModalEditarUsuario from "./ModalEdit";
 import "./App.css";
 
 export function Home() {
   const { data, cargando } = useFetch("http://localhost:3006/pacientes");
+
+  // Estado para controlar la visibilidad del modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  // Estado para almacenar el paciente seleccionado
+  const [selectedPaciente, setSelectedPaciente] = useState(null);
 
   const irPacienteEditar = () => {
     window.location.href = 'http://localhost:5173/crear';
@@ -30,9 +36,17 @@ export function Home() {
     }
   };
 
-  const editar = () => {
-    alert("Haz editado un paciente");
-  };
+// Función para abrir el modal y establecer el paciente seleccionado
+const abrirModalEditar = (paciente) => {
+  setSelectedPaciente(paciente);
+  setIsModalOpen(true);
+};
+
+// Función para cerrar el modal
+const cerrarModal = () => {
+  setIsModalOpen(false);
+  setSelectedPaciente(null);
+};
 
   return (
     <>
@@ -43,13 +57,13 @@ export function Home() {
         <table className="table">
           <thead className="head">
             <tr className="subtitulos">
-              <th class="text-bg-warning p-3">ID</th>
-              <th class="text-bg-warning p-3">Identificación</th>
-              <th class="text-bg-warning p-3">Nombres</th>
-              <th class="text-bg-warning p-3">Apellidos</th>
-              <th class="text-bg-warning p-3">EPS</th>
-              <th class="text-bg-warning p-3">Edad</th>
-              <th class="text-bg-warning p-3">Acciones</th>
+              <th className="text-bg-warning p-3">ID</th>
+              <th className="text-bg-warning p-3">Identificación</th>
+              <th className="text-bg-warning p-3">Nombres</th>
+              <th className="text-bg-warning p-3">Apellidos</th>
+              <th className="text-bg-warning p-3">EPS</th>
+              <th className="text-bg-warning p-3">Edad</th>
+              <th className="text-bg-warning p-3">Acciones</th>
             </tr>
           </thead>
           <tbody className="body">
@@ -62,15 +76,22 @@ export function Home() {
                 <td style={{ textAlign: "center" }}>{user.eps}</td>
                 <td style={{ textAlign: "center" }}>{user.edad}</td>
                 <td className="d-flex justify-content-center actions-cell">
-                  <Edit onClick={editar} />
+                  <Edit onClick={() => abrirModalEditar(user)} />
                   <Delete onClick={() => eliminar(user.id)} />
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-        
       </div>
+
+      {/* Modal para editar paciente */}
+      {isModalOpen && (
+        <ModalEditarUsuario
+          paciente={selectedPaciente}
+          onClose={cerrarModal}
+        />
+      )}
     </>
   );
 }

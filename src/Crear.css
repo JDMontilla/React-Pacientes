@@ -1,0 +1,41 @@
+.form-container1 {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px; /* Ajusta esto al tamaño deseado */
+    margin: 0 auto; /* Centra el formulario en la página */
+    border: 5px solid grey;
+    padding: 40px;
+    border-radius: 20px;
+  }
+  
+  .form-container1 label{
+   margin-bottom: 10px;
+   text-align: center;
+   font-weight: bold;
+   border-radius: 10px;
+
+  }
+  .form-container1 input {
+   align-items: center;
+   text-align: center;
+    margin-bottom: 10px;
+    width: 215px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgb(211, 211, 211);
+    color: black;
+  }
+
+  
+ .tittle{
+    text-align: center;
+    margin-bottom: 50px;
+ } 
+
+ .botonform{
+    background-color: #F5B041;
+    border-radius: 10px;
+    width: 130px;
+    margin: 0 auto;
+ }
