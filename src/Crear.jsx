@@ -1,6 +1,6 @@
 import React from "react";
 import "./Crear.css";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import axios from "axios";
 
 export function Crear() {
@@ -10,13 +10,15 @@ export function Crear() {
   const [apellido, setApellido] = useState('')
   const [eps, setEps] = useState('')
   const [edad, setEdad] = useState(0)
+  const [mora, setMora] = useState(true)
 
   const paciente ={
     'identificacion': identificacion,
     'nombres': nombres,
     'apellido': apellido,
     'eps': eps,
-    'edad': edad 
+    'edad': edad,
+    'mora': mora
   }
 
   const axiosPost = async () => {
@@ -32,7 +34,7 @@ export function Crear() {
 
   return (
     <>
-      <h1 className="tittle">Bienvenido aquí puedes crear un usuario</h1>
+      <h1 className="tittle">Bienvenido aquí puedes crear tu usuario</h1>
         <form className="form-container1">
           <label htmlFor="identificacion">Identificación</label>          
           <input type="text" id="identificacion" onChange={(e) =>{
@@ -50,6 +52,12 @@ export function Crear() {
 
           <label htmlFor="edad">Edad</label>
           <input type="text" id="edad" onChange={(e) => setEdad(e.target.value)} name="edad" />
+
+          <label htmlFor="mora">Mora</label>
+          <input type="checkbox" id="edad" onChange={(e) => {
+            setMora(e.target.checked)
+            console.log(e)}
+            } name="mora" />
 
           <button className="botonform" type="button" onClick={axiosPost}>Enviar</button>
         </form>

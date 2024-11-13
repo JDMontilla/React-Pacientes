@@ -48,12 +48,22 @@ const cerrarModal = () => {
   setSelectedPaciente(null);
 };
 
+function isActive(mora){
+    if(mora === true){
+      return 'Si'
+    } else{
+      return 'No'
+    }
+}
+
+console.log(data)
+
   return (
     <>
       {cargando && <li>Cargando... </li>}
       <h1 className="tittle">INFORMACIÓN DE LOS PACIENTES</h1>
+      <Create onClick={() => irPacienteEditar()}/>
       <div className="div">
-        <Create onClick={irPacienteEditar}/>
         <table className="table">
           <thead className="head">
             <tr className="subtitulos">
@@ -63,6 +73,7 @@ const cerrarModal = () => {
               <th className="text-bg-warning p-3">Apellidos</th>
               <th className="text-bg-warning p-3">EPS</th>
               <th className="text-bg-warning p-3">Edad</th>
+              <th className="text-bg-warning p-3">Mora</th>
               <th className="text-bg-warning p-3">Acciones</th>
             </tr>
           </thead>
@@ -75,6 +86,7 @@ const cerrarModal = () => {
                 <td style={{ textAlign: "center" }}>{user.apellido}</td>
                 <td style={{ textAlign: "center" }}>{user.eps}</td>
                 <td style={{ textAlign: "center" }}>{user.edad}</td>
+                <td style={{ textAlign: "center" }}>{isActive(user.mora)}</td>
                 <td className="d-flex justify-content-center actions-cell">
                   <Edit onClick={() => abrirModalEditar(user)} />
                   <Delete onClick={() => eliminar(user.id)} />

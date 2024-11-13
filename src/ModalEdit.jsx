@@ -11,6 +11,7 @@ function ModalEditarPaciente({ paciente, onClose }) {// es un componente funcion
         apellido: paciente.apellido,
         eps: paciente.eps,
         edad: paciente.edad,
+        mora: paciente.mora,
     });
 
     // Manejador de cambios en los inputs del formulario
@@ -93,6 +94,22 @@ function ModalEditarPaciente({ paciente, onClose }) {// es un componente funcion
                         value={formData.edad}
                         onChange={handleInputChange}
                     />
+                    <label>Esta en Mora:</label>
+                    <div className="inputradio">
+                    Si
+                    <input
+                        type="radio"
+                        name="mora"
+                        value={formData.mora === 'si'}
+                        onChange={handleInputChange}
+                    /> 
+                    <input
+                        type="radio"
+                        name="mora"
+                        value={formData.mora === 'no'}
+                        onChange={handleInputChange}
+                    /> No
+                    </div>
                     <button className="boton-cambio" type="submit">Guardar Cambios</button>
                 </form>
             </div>

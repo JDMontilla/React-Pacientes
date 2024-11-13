@@ -1,0 +1,280 @@
+/* Fondo principal */
+body {
+  background: #1c2c4c; /* Color de fondo oscuro para resaltar los elementos */
+}
+
+/* Contenedor general que define el diseño de la página */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 4fr; /* Dos columnas: aside y main */
+  grid-template-rows: auto 1fr; /* Filas: encabezado y contenido */
+  height: 100vh; /* Asegura que ocupe el 100% de la altura de la ventana */
+  gap: 10px; /* Espacio entre los elementos */
+}
+
+.container header{
+  grid-column: 1 / -1;
+}
+
+/* Diseño para la barra lateral */
+.container aside {
+  background: #f39c12; /* Fondo anaranjado */
+  padding: 20px; /* Añadir padding para separar el contenido de los bordes */
+  text-align: center;
+}
+
+.vacuna{
+  width: 150px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  transition: box-shadow 0.3s ease; /* Transición suave para la sombra */
+}
+
+.doctora{
+  font-weight: bold;
+  width: 150px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease; /* Transición suave para la sombra */
+}
+
+.virtual{
+  width: 150px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease; /* Transición suave para la sombra */
+}
+
+.vacuna:hover,
+.doctora:hover,
+.virtual:hover,
+.redes:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra al pasar el mouse */
+}
+
+/* Diseño para la sección principal */
+.container main {
+  height: 129vh;
+  padding: 20px; /* Añadir padding */
+}
+
+/* Pie de página que abarca toda la parte inferior */
+.container footer {
+  background: #e0f7fa; /* Fondo gris */
+  grid-column: 1 / -1; /* Abarca todo el ancho del contenedor */
+  padding: 20px; /* Añadir padding */
+  color: #424242;
+  display: flex;
+  align-items: flex-start;
+  height: auto;
+  flex-wrap: wrap;
+}
+
+/* Evita que el contenido se desborde en aside y main */
+.container main, .container aside {
+  overflow: hidden;
+}
+
+/* Estilo para el encabezado */
+.encabezado {
+  position: relative; /* Permite posicionar los elementos hijos */
+  text-align: center; /* Centra el texto */
+  color: #F5B041; /* Color del texto */
+  padding: 50px;
+  z-index: 1; /* Asegura que el texto esté sobre la imagen */
+  margin-bottom: 10px;
+  height: 45vh;
+}
+
+.encabezado::before {
+  content: ""; /* Pseudo-elemento para la imagen de fondo */
+  background: linear-gradient(to right,rgba(0, 123, 255, 0.6), rgba(72, 201, 176, 0.6)), 
+              url('https://images.pexels.com/photos/5452203/pexels-photo-5452203.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover; /* Para cubrir completamente el div */
+  background-blend-mode: overlay; /* Mezcla la imagen con el degradado */
+  background-size: cover; /* Cubre todo el encabezado */
+  background-position: center -150px; /* Ajustar la posición vertical de la imagen */
+  opacity: 0.9; /* Opacidad de la imagen */
+  filter: blur(1px); /* Desenfoque ligero */
+  position: absolute; /* Posiciona la imagen detrás del texto */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Asegura que la imagen quede detrás del texto */
+}
+
+/* Estilo del título dentro del encabezado */
+.encabezado h1 {
+  font-size: 48px;
+  color: #f39c12; /* Color del título */
+  text-shadow: 1px 1px 0px #cccccc,   /* Sombra de texto */
+               -1px 1px 0px #cccccc,
+               1px -1px 0px #cccccc,
+               -1px -1px 0px #cccccc;
+}
+
+/* Estilo del párrafo dentro del encabezado */
+.encabezado p {
+  font-size: 18px;
+  color: #ffffff;
+  text-shadow: 1px 1px 0px #000000,   /* Sombra de texto */
+               -1px 1px 0px #cccccc,
+               1px -1px 0px #cccccc,
+               -1px -1px 0px #cccccc;
+}
+
+/* Estilo para la sección de texto en columnas */
+.indice {
+  display: flex;
+  gap: 20px; /* Espacio entre los elementos */
+  padding: 20px;
+}
+
+/* Estilo para los párrafos dentro de la sección índice */
+.indice p {
+  text-align: justify; /* Justificar texto */
+}
+
+.indice h2{
+  margin-top: 30px;
+}
+
+/* Contenedor para imágenes */
+.imagen-cita {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las imágenes se reorganicen si hay demasiadas */
+  justify-content: space-between;
+}
+
+/* Estilo para las imágenes */
+.imagen-cita img {
+  border-radius: 150px;
+  border: 4px solid #cccccc;
+  padding: 3px;
+  max-width: 30%; /* Las imágenes no serán más grandes que su contenedor */
+  height: auto; /* Mantener la proporción */
+}
+
+/* Efecto hover en las imágenes */
+.imagen-cita img:hover {
+  transform: scale(1.1); /* Aumenta el tamaño al 110% al pasar el mouse */
+}
+
+.botonesir button:hover{
+  transform: scale(0.9);
+}
+
+/* Contenedor para los botones */
+.botonesir {
+  justify-content: center;
+  display: flex;
+  gap: 20px; /* Espacio entre los botones */
+  align-items: center; /* Centrar los botones horizontalmente */
+}
+
+/* Estilo para los botones */
+.botonesir button {
+  background-color: #f39c12; /* Color de fondo del botón */
+  padding: 10px;
+  border: 3px solid #cccccc; /* Borde gris */
+  width: 100%; /* El botón ocupa todo el ancho disponible */
+  max-width: 200px; /* Ancho máximo */
+  text-align: center; /* Centrar texto */
+  cursor: pointer; /* Cambia el cursor a pointer */
+}
+
+.h1main{
+  text-align: center;
+  color: #424242;
+  background: #f3f3f3;
+}
+
+.sectionmain{
+  height: 40vh;
+  margin-top: 30px;
+  background: #f3f3f3;
+  padding-right: 50px;
+  padding-inline: 180px;
+}
+.sectionmain img{
+  width: 200px;
+  border-radius: 50px;
+}
+
+.sectionmain img:hover{
+  transform: scale(0.9);
+}
+
+.beneficio{
+  text-align: center;
+  display: flex;
+  gap: 50px;
+  padding-inline: 15px;
+}
+
+.exequial{
+  padding-inline: 10px;
+}
+
+.sectionmain h4{
+  color: #424242;
+  font-weight: bold;
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+  }
+
+  .botonesir button {
+    width: 100%; /* El botón ocupará todo el ancho en pantallas pequeñas */
+  }
+}
+
+.container footer ul li {
+  color: inherit; /* Hacer que los elementos li hereden el color del footer */
+}
+
+.info, .info2, .info3 {
+  color: #424242;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 2.0;
+  display: inline-block; /* Colocarlas una al lado de la otra */
+  margin-right: 20px; /* Añadir margen entre las columnas */
+  cursor: pointer;
+}
+
+.info2:hover {
+  color: #888888; /* Cambia el color cuando se pasa el mouse */
+}
+
+.info3:hover {
+  color: #888888; /* Cambia el color cuando se pasa el mouse */
+}
+
+.info:hover {
+  color: #888888; /* Cambia el color cuando se pasa el mouse */
+}
+
+.siguenos1 {
+  color: #424242;
+  font-weight: bold;
+}
+
+.redes{
+  width: 150px;
+  border-radius: 20px;
+  margin-left: 610px;
+  margin-top: -190px;
+  transition: box-shadow 0.3s ease;
+}
+
+.infoGeneralFooter{
+  color: #424242;
+  margin-top: -180px;
+  margin-left: 870px;
+}

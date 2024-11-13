@@ -8,7 +8,8 @@ export function useFetch(url) {
     setCargando(true);
     fetch(url)
       .then((response) => response.json())
-      .then((data) => setData(data))
+      .then((data) => { setData(data)
+      })
       .finally(() => setCargando(false));
   },[]);
 

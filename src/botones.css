@@ -1,17 +1,19 @@
-.crear{
-  margin-top: 20px;
-  margin-bottom: 20px;
+.crear{ 
+  margin: 0%;
   background-color: #196F3D;
   color: #ffffff;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: bold;
   padding-right: 30px;
   border-radius: 20px;
+  position: absolute;
+  left: 0;
+  margin-left: 18px;
 }
 
 .icono-personalizado{
   font-size: 30px;
   border-radius: 10px;
   margin: 8px;
- fill: #ffffff;
+  fill: #ffffff;
 }
